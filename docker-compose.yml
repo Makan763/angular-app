@@ -1,0 +1,12 @@
+#Spécifier la version docker-compose
+version: '3.7'
+#Définir les services/conteneurs pour être demarré
+services:
+  app-angular: #le nom du service angular
+    container_name: angular-container1 # le nom du conteneur
+    build: ./ # spécififer le chemin Dockerfile
+    volumes: # volume binding
+      - ./:/usr/src/app
+    ports:
+      - 4201:4200 # Spécifier le port d'acheminement
+    command: bash -c "npm start"
